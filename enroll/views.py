@@ -12,6 +12,8 @@ def add_show(request):
             password = fm.cleaned_data['password']
             user = User(name=name,email=email,password=password)
             user.save()
+            # after data get saved blank form should be visible
+            fm = StudentRegistration()
     else:
         fm = StudentRegistration()
     return render(request,'enroll/addandshow.html',{'form':fm})
