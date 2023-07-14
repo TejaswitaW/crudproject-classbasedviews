@@ -1,4 +1,4 @@
-# CRUD implementation
+# CRUD implementation project
 ## Technlogies Used
 ### Backend
 * Python
