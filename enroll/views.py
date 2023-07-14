@@ -5,6 +5,8 @@ from .forms import StudentRegistration
 def add_show(request):
     if request.method == 'POST':
         fm = StudentRegistration(request.POST)
+        if fm.is_valid():
+            fm.save()
     else:
         fm = StudentRegistration()
     return render(request,'enroll/addandshow.html',{'form':fm})
