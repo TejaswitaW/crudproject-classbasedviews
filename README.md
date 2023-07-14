@@ -1,5 +1,5 @@
 # CRUD implementation project
-## Technlogies Used
+## Technologies Used
 ### Backend
 * Python
   * Django
