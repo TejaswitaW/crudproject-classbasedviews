@@ -6,7 +6,7 @@ from .models import User
 
 def add_show(request):
     """
-    This function adds new user and show all users in the database
+    This function adds new user and show all users in the database.
     """
     if request.method == 'POST':
         fm = StudentRegistration(request.POST)
@@ -22,6 +22,23 @@ def add_show(request):
         fm = StudentRegistration()
     st = User.objects.all()
     return render(request,'enroll/addandshow.html',{'form':fm,'students':st})
+
+
+def update_data(request,id):
+    """
+    This function update/edit user data.
+    """
+    if request.method == 'POST':
+        usr = User.objects.get(pk=id)
+        fm = StudentRegistration(request.POST,instance=usr)
+        if fm.is_valid():
+            fm.save()
+    else:
+        usr = User.objects.get(pk=id)
+        fm = StudentRegistration(instance=usr)
+
+    return render(request,'enroll/updatestudent.html',{'form':fm})
+
 
 def delete_data(request,id):
     """
